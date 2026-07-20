@@ -1,0 +1,126 @@
+<ProfileScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F0F1E0"
+
+        MDTopAppBar:
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "settings"
+
+            MDTopAppBarTitle:
+                text: "Profile"
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: "20dp"
+                spacing: "20dp"
+
+                # ---------- PROFILE CARD ----------
+
+                MDCard:
+                    style: "filled"
+                    radius: [25]
+                    md_bg_color: "#0BB229"
+                    size_hint_y: None
+                    height: "270dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "20dp"
+                        spacing: "10dp"
+
+                        Widget:
+
+                        MDIcon:
+                            icon: "account-circle"
+                            halign: "center"
+                            font_size: "90sp"
+                            theme_icon_color: "Custom"
+                            icon_color: "white"
+
+                        MDLabel:
+                            text: "Welcome Back "
+                            halign: "center"
+                            font_style: "Title"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+
+                        MDLabel:
+                            id: username_label
+                            text: ""
+                            halign: "center"
+                            font_style: "Headline"
+                            bold: True
+                            theme_text_color: "Custom"
+                            text_color: "white"
+
+                        Widget:
+
+                # ---------- STATISTICS ----------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [20]
+                    adaptive_height: True
+                    padding: "20dp"
+
+                    MDGridLayout:
+                        cols: 2
+                        adaptive_height: True
+                        spacing: "15dp"
+
+                        MDLabel:
+                            text: "Income"
+
+                        MDLabel:
+                            id: income_label
+                            text: "0"
+                            halign: "right"
+
+                        MDLabel:
+                            text: "Expense"
+
+                        MDLabel:
+                            id: expense_label
+                            text: "0"
+                            halign: "right"
+
+                        MDLabel:
+                            text: "Balance"
+
+                        MDLabel:
+                            id: balance_label
+                            text: "0"
+                            halign: "right"
+
+                        MDLabel:
+                            text: "Transactions"
+
+                        MDLabel:
+                            id: transaction_count
+                            text: "0"
+                            halign: "right"
+
+                # ---------- BACK BUTTON ----------
+
+                MDButton:
+                    style: "filled"
+                    pos_hint: {"center_x": .5}
+                    on_release:
+                        app.root.current = "dashboard"
+
+                    MDButtonIcon:
+                        icon: "home"
+
+                    MDButtonText:
+                        text: "Back to Dashboard"

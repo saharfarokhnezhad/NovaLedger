@@ -1,0 +1,255 @@
+<ReportsScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F6F5EC"
+
+        MDTopAppBar:
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "dashboard"
+
+            MDTopAppBarTitle:
+                text: "Reports"
+
+
+        MDButton:
+            id: date_button
+            style: "outlined"
+            size_hint: None, None
+            size: "180dp", "48dp"
+            pos_hint: {"center_x": .5}
+
+            on_release:
+                root.open_date_picker()
+
+            MDButtonIcon:
+                icon: "calendar"
+
+            MDButtonText:
+                text: "Select Month"
+
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: "20dp"
+                spacing: "20dp"
+
+                ###################################################
+                ## BALANCE
+                ###################################################
+
+                MDCard:
+                    style: "filled"
+                    radius: [28]
+                    md_bg_color: "#15B347"
+                    size_hint_y: None
+                    height: "190dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "20dp"
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            text: "Current Balance"
+                            halign: "center"
+                            font_style: "Title"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            adaptive_height: True
+
+                        MDLabel:
+                            id: balance_label
+                            text: "0"
+                            halign: "center"
+                            font_style: "Headline"
+                            theme_text_color: "Custom"
+                            text_color: "white"
+                            bold: True
+                            adaptive_height: True
+
+                        Widget:
+
+                ###################################################
+                ## SUMMARY
+                ###################################################
+
+                MDGridLayout:
+                    cols: 1
+                    spacing: "15dp"
+                    adaptive_height: True
+
+                    ###########################
+
+                    MDCard:
+                        style: "elevated"
+                        radius: [20]
+                        size_hint_y: None
+                        height: "85dp"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: "18dp"
+                            spacing: "15dp"
+
+                            MDIcon:
+                                icon: "cash-plus"
+                                font_size: "32sp"
+                                theme_icon_color: "Custom"
+                                icon_color: "#14B347"
+                                size_hint_x: None
+                                width: "40dp"
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+
+                                MDLabel:
+                                    text: "Income"
+
+                                MDLabel:
+                                    id: income_label
+                                    text: "0"
+                                    font_style: "Headline"
+                                    theme_text_color: "Custom"
+                                    text_color: "#14B347"
+
+                    ###########################
+
+                    MDCard:
+                        style: "elevated"
+                        radius: [20]
+                        size_hint_y: None
+                        height: "85dp"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: "18dp"
+                            spacing: "15dp"
+
+                            MDIcon:
+                                icon: "cash-minus"
+                                font_size: "32sp"
+                                theme_icon_color: "Custom"
+                                icon_color: "#F44336"
+                                size_hint_x: None
+                                width: "40dp"
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+
+                                MDLabel:
+                                    text: "Expense"
+
+                                MDLabel:
+                                    id: expense_label
+                                    text: "0"
+                                    font_style: "Headline"
+                                    theme_text_color: "Custom"
+                                    text_color: "#F44336"
+
+                    ###########################
+
+                    MDCard:
+                        style: "elevated"
+                        radius: [20]
+                        size_hint_y: None
+                        height: "85dp"
+
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: "18dp"
+                            spacing: "15dp"
+
+                            MDIcon:
+                                icon: "swap-horizontal"
+                                font_size: "32sp"
+                                theme_icon_color: "Custom"
+                                icon_color: "#2196F3"
+                                size_hint_x: None
+                                width: "40dp"
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+
+                                MDLabel:
+                                    text: "Transactions"
+
+                                MDLabel:
+                                    id: transaction_label
+                                    text: "0"
+                                    font_style: "Headline"
+                                    theme_text_color: "Custom"
+                                    text_color: "#2196F3"
+
+###################################################
+## LINE CHART
+###################################################
+
+                MDCard:
+                    style: "elevated"
+                    radius: [24]
+                    size_hint_y: None
+                    height: "360dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "18dp"
+                        spacing: "12dp"
+                        size_hint_y: 1
+
+                        MDBoxLayout:
+                            adaptive_height: True
+
+                            MDLabel:
+                                text: "Income vs Expense"
+                                bold: True
+                                font_size: "18sp"
+
+                            Widget:
+
+                            MDLabel:
+                                text: "Last 6 Months"
+                                theme_text_color: "Secondary"
+
+                        Image:
+                            id: line_chart
+                            allow_stretch: True
+                            keep_ratio: True
+
+###################################################
+## PIE CHART
+###################################################
+
+                MDCard:
+                    style: "elevated"
+                    radius: [24]
+                    size_hint_y: None
+                    height: "340dp"
+
+                    MDBoxLayout:
+                        orientation: "vertical"
+                        padding: "18dp"
+                        spacing: "12dp"
+                        size_hint_y: 1
+
+                        MDLabel:
+                            text: "Expense by Category"
+                            bold: True
+                            font_size: "18sp"
+
+                        Image:
+                            id: pie_chart
+                            allow_stretch: True
+                            keep_ratio: True
+                                

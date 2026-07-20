@@ -1,0 +1,82 @@
+<LoginScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "28dp"
+        spacing: "16dp"
+        md_bg_color: "#f0f1e0"
+
+        Widget:
+            size_hint_y: .25
+
+        MDIcon:
+            icon: "sprout"
+            pos_hint: {"center_x": .5}
+            font_size: "90sp"
+
+            theme_icon_color: "Custom"
+            icon_color: "#0BB229"
+
+        MDLabel:
+            text: "NovaLedger"
+            halign: "center"
+            font_style: "Headline"
+
+            theme_text_color: "Custom"
+            text_color: "#3b5c40"
+
+        MDLabel:
+            text: "Track your money beautifully"
+            halign: "center"
+
+            theme_text_color: "Custom"
+            text_color: "#587d67"
+
+        Widget:
+            size_hint_y: .02
+
+        MDTextField:
+            id: username_field
+            mode: "outlined"
+            size_hint_x: .90
+            pos_hint: {"center_x": .5}
+
+            MDTextFieldLeadingIcon:
+                icon: "account"
+
+            MDTextFieldHintText:
+                text: "Username"
+
+        MDTextField:
+            id: password_field
+            mode: "outlined"
+            password: True
+            size_hint_x: .90
+            pos_hint: {"center_x": .5}
+
+            MDTextFieldLeadingIcon:
+                icon: "lock"
+
+            MDTextFieldHintText:
+                text: "Password"
+
+        Widget:
+            size_hint_y: .01
+
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .5}
+            on_release: root.login()
+
+            MDButtonText:
+                text: "Login"
+
+        MDButton:
+            style: "text"
+            pos_hint: {"center_x": .5}
+            on_release: root.go_register()
+
+            MDButtonText:
+                text: "Create Account"
+
+        Widget:

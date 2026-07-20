@@ -1,0 +1,144 @@
+<SettingsScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F0F1E0"
+
+        MDTopAppBar:
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "dashboard"
+
+            MDTopAppBarTitle:
+                text: "Settings"
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: "20dp"
+                spacing: "15dp"
+
+                # -------- Profile --------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [18]
+                    size_hint_y: None
+                    height: "65dp"
+
+                    MDButton:
+                        style: "text"
+                        on_release:
+                            app.root.current = "profile"
+
+                        MDButtonIcon:
+                            icon: "account"
+
+                        MDButtonText:
+                            text: "Profile"
+
+                # -------- Categories --------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [18]
+                    size_hint_y: None
+                    height: "65dp"
+
+                    MDButton:
+                        style: "text"
+                        on_release:
+                            app.root.current = "categories"
+
+                        MDButtonIcon:
+                            icon: "shape"
+
+                        MDButtonText:
+                            text: "Categories"
+
+                # -------- Dark Mode --------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [18]
+                    size_hint_y: None
+                    height: "65dp"
+
+                    MDBoxLayout:
+                        padding: "15dp"
+                        spacing: "10dp"
+
+                        MDIcon:
+                            icon: "theme-light-dark"
+
+                        MDLabel:
+                            text: "Dark Mode"
+
+                        Widget:
+
+                        MDSwitch:
+                            on_active:
+                                root.change_theme(self.active)
+
+                # -------- Change Password --------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [18]
+                    size_hint_y: None
+                    height: "65dp"
+
+                    MDButton:
+                        style: "text"
+                        on_release:
+                            app.root.current = "change_password"
+
+                        MDButtonIcon:
+                            icon: "lock"
+
+                        MDButtonText:
+                            text: "Change Password"
+
+                # -------- About --------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [18]
+                    size_hint_y: None
+                    height: "65dp"
+
+                    MDButton:
+                        style: "text"
+                        on_release:
+                            app.root.current = "about"
+
+                        MDButtonIcon:
+                            icon: "information"
+
+                        MDButtonText:
+                            text: "About NovaLedger"
+
+                # -------- Logout --------
+
+                MDCard:
+                    style: "elevated"
+                    radius: [18]
+                    size_hint_y: None
+                    height: "65dp"
+
+                    MDButton:
+                        style: "text"
+                        on_release:
+                            root.logout()
+
+                        MDButtonIcon:
+                            icon: "logout"
+
+                        MDButtonText:
+                            text: "Logout"

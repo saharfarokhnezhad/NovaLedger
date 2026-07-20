@@ -1,0 +1,57 @@
+<AboutScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F0F1E0"
+
+        MDTopAppBar:
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "settings"
+
+            MDTopAppBarTitle:
+                text: "About"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "25dp"
+            spacing: "20dp"
+
+            Widget:
+
+            MDIcon:
+                icon: "sprout"
+                halign: "center"
+                font_size: "90sp"
+                theme_icon_color: "Custom"
+                icon_color: "#0BB229"
+
+            MDLabel:
+                text: "NovaLedger"
+                halign: "center"
+                font_style: "Headline"
+
+            MDLabel:
+                text: "Version 1.0.0"
+                halign: "center"
+
+            MDLabel:
+                text:
+                    "NovaLedger is a modern personal finance application built with Python, Kivy and SQLite."
+                halign: "center"
+
+            MDLabel:
+                text: "Developer"
+                halign: "center"
+
+            MDLabel:
+                text: "Sahar"
+                halign: "center"
+                bold: True
+
+            Widget

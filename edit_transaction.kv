@@ -1,0 +1,80 @@
+<EditTransactionScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F6F5EC"
+
+        MDTopAppBar:
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "dashboard"
+
+            MDTopAppBarTitle:
+                text: "Edit Transaction"
+
+        ScrollView:
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+                padding: "20dp"
+                spacing: "18dp"
+
+                MDTextField:
+                    id: title_field
+                    hint_text: "Title"
+                    mode: "outlined"
+
+                MDTextField:
+                    id: amount_field
+                    hint_text: "Amount"
+                    mode: "outlined"
+                    input_filter: "float"
+
+                MDDropDownItem:
+                    id: category_item
+                    text: "Select Category"
+                    on_release:
+                        root.open_category_menu()
+
+                MDTextField:
+                    id: description_field
+                    hint_text: "Description"
+                    mode: "outlined"
+                    multiline: True
+
+                MDTextField:
+                    id: date_field
+                    hint_text: "Date"
+                    mode: "outlined"
+
+                Widget:
+                    size_hint_y: None
+                    height: "10dp"
+
+                MDButton:
+                    style: "filled"
+                    theme_bg_color: "Custom"
+                    md_bg_color: "#14B347"
+                    pos_hint: {"center_x": .5}
+                    on_release:
+                        root.save_changes()
+
+                    MDButtonText:
+                        text: "Save Changes"
+
+                MDButton:
+                    style: "filled"
+                    theme_bg_color: "Custom"
+                    md_bg_color: "#E53935"
+                    pos_hint: {"center_x": .5}
+                    on_release:
+                        root.delete_transaction()
+
+                    MDButtonText:
+                        text: "Delete Transaction"

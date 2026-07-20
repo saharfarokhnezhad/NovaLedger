@@ -1,0 +1,95 @@
+<RegisterScreen>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "30dp"
+        spacing: "16dp"
+        md_bg_color: "#F0F1E0"
+
+        Widget:
+            size_hint_y: .18
+
+        MDIcon:
+            icon: "account-plus"
+            pos_hint: {"center_x": .5}
+            font_size: "80sp"
+
+            theme_icon_color: "Custom"
+            icon_color: "#0BB229"
+
+        MDLabel:
+            text: "Create Account"
+            halign: "center"
+            font_style: "Headline"
+
+            theme_text_color: "Custom"
+            text_color: "#455A4E"
+
+        MDLabel:
+            text: "Join NovaLedger"
+            halign: "center"
+
+            theme_text_color: "Custom"
+            text_color: "#647F6F"
+
+        Widget:
+            size_hint_y: .02
+
+        MDTextField:
+            id: username
+            mode: "outlined"
+            size_hint_x: .90
+            pos_hint: {"center_x": .5}
+
+            MDTextFieldLeadingIcon:
+                icon: "account"
+
+            MDTextFieldHintText:
+                text: "Username"
+
+        MDTextField:
+            id: password
+            mode: "outlined"
+            password: True
+            size_hint_x: .90
+            pos_hint: {"center_x": .5}
+
+            MDTextFieldLeadingIcon:
+                icon: "lock"
+
+            MDTextFieldHintText:
+                text: "Password"
+
+        MDTextField:
+            id: confirm_password
+            mode: "outlined"
+            password: True
+            size_hint_x: .90
+            pos_hint: {"center_x": .5}
+
+            MDTextFieldLeadingIcon:
+                icon: "lock-check"
+
+            MDTextFieldHintText:
+                text: "Confirm Password"
+
+        Widget:
+            size_hint_y: .02
+
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .5}
+            on_release: root.register()
+
+            MDButtonText:
+                text: "Register"
+
+        MDButton:
+            style: "text"
+            pos_hint: {"center_x": .5}
+            on_release: root.go_login()
+
+            MDButtonText:
+                text: "Back to Login"
+
+        Widget:

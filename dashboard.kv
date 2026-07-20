@@ -1,0 +1,235 @@
+<DashboardScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F0F1E0"
+        padding: "20dp"
+        spacing: "18dp"
+
+        # ================= HEADER =================
+
+        MDBoxLayout:
+            adaptive_height: True
+            spacing: "12dp"
+
+            MDIcon:
+                icon: "sprout"
+                font_size: "42sp"
+                theme_icon_color: "Custom"
+                icon_color: "#0BB229"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                adaptive_height: True
+
+                MDLabel:
+                    text: "NovaLedger"
+                    font_style: "Headline"
+                    theme_text_color: "Custom"
+                    text_color: "#455A4E"
+                    bold: True
+
+                MDLabel:
+                    id: welcome_label
+                    text: ""
+                    theme_text_color: "Custom"
+                    text_color: "#647F6F"
+
+            Widget:
+
+            MDIconButton:
+                icon: "cog-outline"
+                on_release:
+                    app.root.current = "settings"
+
+        # ================= BALANCE CARD =================
+
+        MDCard:
+            style: "filled"
+            radius: [24]
+            size_hint_y: None
+            height: "200dp"
+            md_bg_color: "#0BB229"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                padding: "20dp"
+                spacing: "15dp"
+
+                Widget:
+
+                MDLabel:
+                    text: "Total Balance"
+                    halign: "center"
+                    font_size: "18sp"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    adaptive_height: True
+
+                MDLabel:
+                    id: balance_label
+                    text: "0"
+                    halign: "center"
+                    font_size: "40sp"
+                    bold: True
+                    theme_text_color: "Custom"
+                    text_color: "white"
+                    adaptive_height: True
+
+                Widget:
+
+        # ================= INCOME / EXPENSE =================
+
+        MDGridLayout:
+            cols: 2
+            spacing: "15dp"
+            adaptive_height: True
+
+            MDCard:
+                style: "elevated"
+                radius: [20]
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "18dp"
+
+                    MDIcon:
+                        icon: "cash-plus"
+                        theme_icon_color: "Custom"
+                        icon_color: "#0BB229"
+                        font_size: "34sp"
+
+                    Widget:
+
+                    MDLabel:
+                        text: "Income"
+                        halign: "center"
+                        font_size: "16sp"
+                        adaptive_height: True
+                        theme_text_color: "Custom"
+                        text_color: "#647F6F"
+
+                    MDLabel:
+                        id: income_label
+                        text: "0"
+                        halign: "center"
+                        font_size: "24sp"
+                        bold: True
+                        adaptive_height: True
+                        font_style: "Title"
+                        theme_text_color: "Custom"
+                        text_color: "#455A4E"
+
+            MDCard:
+                style: "elevated"
+                radius: [20]
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "18dp"
+
+                    MDIcon:
+                        icon: "cash-minus"
+                        theme_icon_color: "Custom"
+                        icon_color: "#EF5350"
+                        font_size: "34sp"
+
+                    Widget:
+
+                    MDLabel:
+                        text: "Expense"
+                        halign: "center"
+                        font_size: "16sp"
+                        adaptive_height: True
+                        theme_text_color: "Custom"
+                        text_color: "#647F6F"
+
+                    MDLabel:
+                        id: expense_label
+                        text: "0"
+                        halign: "center"
+                        font_size: "24sp"
+                        bold: True
+                        adaptive_height: True
+                        font_style: "Title"
+                        theme_text_color: "Custom"
+                        text_color: "#455A4E"
+
+        MDTextField:
+            id: search_field
+            mode: "outlined"
+            hint_text: "Search transactions..."
+            size_hint_y: None
+            height: "56dp"
+            on_text: root.search_transactions(self.text)
+
+            MDTextFieldLeadingIcon:
+                icon: "magnify"
+
+        MDLabel:
+            text: "Recent Transactions"
+            font_style: "Title"
+            theme_text_color: "Custom"
+            text_color: "#455A4E"
+
+        MDCard:
+            style: "elevated"
+            radius: [22]
+            size_hint_y: None
+            height: "320dp"
+
+            ScrollView:
+
+                MDBoxLayout:
+                    id: transactions_container
+                    orientation: "vertical"
+                    adaptive_height: True
+                    padding: "10dp"
+                    spacing: "10dp"
+
+        # ================= BOTTOM NAV =================
+
+        MDCard:
+            style: "filled"
+            radius: [28, 28, 0, 0]
+            md_bg_color: "#FFFFFF"
+            adaptive_height: True
+
+            MDGridLayout:
+                cols: 4
+                padding: "10dp"
+                spacing: "5dp"
+                adaptive_height: True
+
+                MDIconButton:
+                    icon: "home"
+
+                    disabled: True
+
+                    theme_icon_color: "Custom"
+                    icon_color: "#0BB229"
+
+                MDIconButton:
+                    id: add_button
+                    icon: "plus-circle"
+                    theme_icon_color: "Custom"
+                    icon_color: "#0BB229"
+                    on_release:
+                        root.open_add_menu()
+
+                MDIconButton:
+                    icon: "chart-line"
+                    theme_icon_color: "Custom"
+                    icon_color: "#647F6F"
+                    on_release:
+                        app.root.current = "reports"
+
+                MDIconButton:
+                    icon: "cog-outline"
+                    theme_icon_color: "Custom"
+                    icon_color: "#647F6F"
+                    on_release:
+                        app.root.current = "settings"
+
+    

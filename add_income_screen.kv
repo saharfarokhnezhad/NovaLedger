@@ -1,0 +1,88 @@
+<AddIncomeScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F0F1E0"
+        padding: "20dp"
+        spacing: "15dp"
+
+        MDTopAppBar:
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "dashboard"
+
+            MDTopAppBarTitle:
+                text: "Add Income"
+
+        MDTextField:
+            id: title_field
+            mode: "outlined"
+
+            MDTextFieldLeadingIcon:
+                icon: "cash"
+
+            MDTextFieldHintText:
+                text: "Title"
+
+        MDButton:
+            style: "outlined"
+            size_hint_y: None
+            height: "56dp"
+
+            on_release:
+                root.open_categories()
+
+            MDButtonText:
+                id: category_field
+                text: "Select Category"
+
+        MDTextField:
+            id: amount_field
+            mode: "outlined"
+
+            MDTextFieldLeadingIcon:
+                icon: "currency-usd"
+
+            MDTextFieldHintText:
+                text: "Amount"
+
+        MDTextField:
+            id: description_field
+            mode: "outlined"
+
+            MDTextFieldLeadingIcon:
+                icon: "text"
+
+            MDTextFieldHintText:
+                text: "Description"
+
+        MDTextField:
+            id: date_field
+            mode: "outlined"
+            readonly: True
+
+            on_focus:
+                if self.focus: root.open_date_picker()
+
+            MDTextFieldLeadingIcon:
+                icon: "calendar"
+
+            MDTextFieldHintText:
+                text: "Date"
+
+        Widget:
+
+        MDButton:
+            style: "filled"
+            pos_hint: {"center_x": .5}
+
+            on_release:
+                root.save_income()
+
+            MDButtonText:
+                text: "Save Income"

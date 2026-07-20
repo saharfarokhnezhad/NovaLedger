@@ -1,0 +1,68 @@
+<CategoriesScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color: "#F0F1E0"
+
+        MDTopAppBar:
+
+            type: "small"
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release:
+                        app.root.current = "dashboard"
+
+            MDTopAppBarTitle:
+                text: "Categories"
+
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: "15dp"
+            spacing: "12dp"
+
+            MDTextField:
+                id: category_name
+                mode: "outlined"
+
+                MDTextFieldHintText:
+                    text: "Category Name"
+
+                MDTextFieldLeadingIcon:
+                    icon: "shape"
+
+            MDSegmentedButton:
+                id: type_segment
+
+                MDSegmentedButtonItem:
+                    id: income_btn
+                    active: True
+
+                    MDSegmentButtonLabel:
+                        text: "Income"
+
+                MDSegmentedButtonItem:
+                    id: expense_btn
+
+                    MDSegmentButtonLabel:
+                        text: "Expense"
+
+            MDButton:
+                style: "filled"
+                pos_hint: {"center_x": .5}
+                on_release:
+                    root.add_category()
+
+                MDButtonText:
+                    text: "Add Category"
+
+            MDLabel:
+                text: "Your Categories"
+                font_style: "Title"
+
+            ScrollView:
+
+                MDList:
+                    id: categories_list
