@@ -1,4 +1,4 @@
-name: Build APK
+name: Build Android APK
 
 on:
   workflow_dispatch:
@@ -8,16 +8,9 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Build APK
-        uses: ArtemSBulgakov/buildozer-action@v1
+      - name: Build with Buildozer
+        uses: ArtemSBulgakov/buildozer-action@v2
         with:
-          workdir: .
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: NovaLedger-APK
-          path: bin/*.apk
+          command: buildozer android debug
